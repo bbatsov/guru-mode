@@ -1,9 +1,9 @@
-;;; gosu-mode.el --- Become an Emacs gosu
+;;; master-mode.el --- Become an Emacs master
 
 ;; Copyright (C) 2012 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov
-;; URL: https://github.com/bbatsov/gosu-mode
+;; URL: https://github.com/bbatsov/master-mode
 ;; Version: 0.1
 ;; Keywords: convenience
 
@@ -28,12 +28,12 @@
 
 ;;; Commentary:
 ;;
-;; Gosu mode teaches to use Emacs properly.
+;; Master mode teaches to use Emacs properly.
 ;;
 ;;; Code:
 
-(defvar gosu-mode-map (make-sparse-keymap)
-  "Gosu mode's keymap.")
+(defvar master-mode-map (make-sparse-keymap)
+  "Master mode's keymap.")
 
 (defvar affected-bindings-list '(("<left>" . "C-b")
                                  ("<right>" . "C-f")
@@ -60,19 +60,19 @@
                                  ("<end>" . "C-e")
                                  ("<C-end>" . "M->")))
 
-(defun gosu-rebind (original-key alt-key)
+(defun master-rebind (original-key alt-key)
   `(lambda ()
      (interactive)
      (message (concat ,original-key " keybinding is disabled! Use " ,alt-key " instead."))))
 
 (dolist (cell affected-bindings-list)
-  (define-key gosu-mode-map
-    (read-kbd-macro (first cell)) (gosu-rebind (first cell) (rest cell))))
+  (define-key master-mode-map
+    (read-kbd-macro (first cell)) (master-rebind (first cell) (rest cell))))
 
-(define-minor-mode gosu-mode
+(define-minor-mode master-mode
   "A minor mode that teaches to help you use Emacs the way it was intended to be used."
-  t " gosu"
-  'gosu-mode-map :global t)
+  t " master"
+  'master-mode-map :global t)
 
-(provide 'gosu-mode)
-;;; gosu-mode.el ends here
+(provide 'master-mode)
+;;; master-mode.el ends here
