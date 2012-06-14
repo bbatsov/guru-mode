@@ -1,9 +1,9 @@
-;;; master-mode.el --- Become an Emacs master
+;;; guru-mode.el --- Become an Emacs guru
 
 ;; Copyright (C) 2012 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov
-;; URL: https://github.com/bbatsov/master-mode
+;; URL: https://github.com/bbatsov/guru-mode
 ;; Version: 0.1
 ;; Keywords: convenience
 
@@ -28,12 +28,12 @@
 
 ;;; Commentary:
 ;;
-;; Master mode teaches to use Emacs properly.
+;; Guru mode teaches to use Emacs properly.
 ;;
 ;;; Code:
 
-(defvar master-mode-map (make-sparse-keymap)
-  "Master mode's keymap.")
+(defvar guru-mode-map (make-sparse-keymap)
+  "Guru mode's keymap.")
 
 (defvar affected-bindings-list '(("<left>" . "C-b")
                                  ("<right>" . "C-f")
@@ -60,19 +60,19 @@
                                  ("<end>" . "C-e")
                                  ("<C-end>" . "M->")))
 
-(defun master-rebind (original-key alt-key)
+(defun guru-rebind (original-key alt-key)
   `(lambda ()
      (interactive)
      (message (concat ,original-key " keybinding is disabled! Use " ,alt-key " instead."))))
 
 (dolist (cell affected-bindings-list)
-  (define-key master-mode-map
-    (read-kbd-macro (first cell)) (master-rebind (first cell) (rest cell))))
+  (define-key guru-mode-map
+    (read-kbd-macro (first cell)) (guru-rebind (first cell) (rest cell))))
 
-(define-minor-mode master-mode
+(define-minor-mode guru-mode
   "A minor mode that teaches to help you use Emacs the way it was intended to be used."
-  t " master"
-  'master-mode-map :global t)
+  t " guru"
+  'guru-mode-map :global t)
 
-(provide 'master-mode)
-;;; master-mode.el ends here
+(provide 'guru-mode)
+;;; guru-mode.el ends here
