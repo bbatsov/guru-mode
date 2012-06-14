@@ -63,7 +63,7 @@
 (defun guru-rebind (original-key alt-key)
   `(lambda ()
      (interactive)
-     (message (concat ,original-key " keybinding is disabled! Use " ,alt-key " instead."))))
+     (message "%s keybinding is disabled! Use <%s> instead" ,original-key  ,alt-key)))
 
 (dolist (cell affected-bindings-list)
   (define-key guru-mode-map
