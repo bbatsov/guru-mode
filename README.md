@@ -16,7 +16,7 @@ You can enable projectile globally like this:
 
 ```
 (require 'guru-mode)
-(guru-mode) ;; to enable in all buffers
+(guru-mode +1) ;; to enable in all buffers
 ```
 
 ## Marmalade

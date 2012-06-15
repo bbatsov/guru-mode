@@ -69,6 +69,7 @@
   (define-key guru-mode-map
     (read-kbd-macro (first cell)) (guru-rebind (first cell) (rest cell))))
 
+;;;###autoload
 (define-minor-mode guru-mode
   "A minor mode that teaches to help you use Emacs the way it was intended to be used."
   t " guru"
