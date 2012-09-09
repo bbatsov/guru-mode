@@ -69,10 +69,6 @@
   (define-key guru-mode-map
     (read-kbd-macro (first cell)) (guru-rebind (first cell) (rest cell))))
 
-;; define minor mode
-;;;###autoload
-(define-globalized-minor-mode guru-global-mode guru-mode guru-on)
-
 (defun guru-on ()
   "Enable Guru."
   (guru-mode +1))
@@ -86,6 +82,10 @@
   :lighter " guru"
   :keymap guru-mode-map
   :group 'guru)
+
+;; define global minor mode
+;;;###autoload
+(define-globalized-minor-mode guru-global-mode guru-mode guru-on)
 
 (provide 'guru-mode)
 ;;; guru-mode.el ends here
