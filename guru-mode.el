@@ -55,7 +55,6 @@
                                  ("<prior>" . "M-v")
                                  ("<C-prior>" . "M-x >")
                                  ("<home>" . "C-a")
-                                 ("<C-home>" . "M->")
                                  ("<C-home>" . "M-<")
                                  ("<end>" . "C-e")
                                  ("<C-end>" . "M->")))
