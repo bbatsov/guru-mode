@@ -68,23 +68,24 @@
   (define-key guru-mode-map
     (read-kbd-macro (first cell)) (guru-rebind (first cell) (rest cell))))
 
-(defun guru-on ()
-  "Enable Guru."
+(defun turn-on-guru-mode ()
+  "Enable Guru mode."
   (guru-mode +1))
 
-(defun guru-off ()
-  "Disable Guru."
+(defun turn-off-guru-mode ()
+  "Disable Guru mode."
   (guru-mode -1))
 
 ;;;###autoload
-(define-minor-mode guru-mode  "A minor mode that teaches to help you use Emacs the way it was intended to be used."
+(define-minor-mode guru-mode
+  "A minor mode that teaches you to use Emacs effectively."
   :lighter " guru"
   :keymap guru-mode-map
   :group 'guru)
 
 ;; define global minor mode
 ;;;###autoload
-(define-globalized-minor-mode guru-global-mode guru-mode guru-on)
+(define-globalized-minor-mode guru-global-mode guru-mode turn-on-guru-mode)
 
 (provide 'guru-mode)
 ;;; guru-mode.el ends here
