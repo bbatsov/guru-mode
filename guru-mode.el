@@ -66,7 +66,7 @@
 
 (dolist (cell affected-bindings-list)
   (define-key guru-mode-map
-    (read-kbd-macro (first cell)) (guru-rebind (first cell) (rest cell))))
+    (read-kbd-macro (car cell)) (guru-rebind (car cell) (cdr cell))))
 
 (defun turn-on-guru-mode ()
   "Enable Guru mode."
