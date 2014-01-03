@@ -45,6 +45,12 @@ Most likely you'd like to enable `guru-mode` only in specific modes
 (add-hook 'prog-mode-hook 'turn-on-guru-mode)
 ```
 
+If you only want to get warnings when you the arrow keys use the following config:
+
+```lisp
+(setq guru-warn-only t)
+```
+
 # Share the knowledge
 
 [WikEmacs](http://wikemacs.org) collects useful resources for working

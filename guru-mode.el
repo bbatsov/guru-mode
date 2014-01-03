@@ -1,6 +1,6 @@
-;;; guru-mode.el --- Become an Emacs guru
+;;; guru-mode.el --- Become an Emacs guru   -*- lexical-binding:t -*-
 
-;; Copyright (C) 2012 Bozhidar Batsov
+;; Copyright (C) 2012-2013 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov
 ;; URL: https://github.com/bbatsov/guru-mode
@@ -35,36 +35,43 @@
 (defvar guru-mode-map (make-sparse-keymap)
   "Guru mode's keymap.")
 
-(defvar affected-bindings-list '(("<left>" . "C-b")
-                                 ("<right>" . "C-f")
-                                 ("<up>" . "C-p")
-                                 ("<down>" . "C-n")
-                                 ("<C-left>" . "M-b")
-                                 ("<C-right>" . "M-f")
-                                 ("<C-up>" . "M-{")
-                                 ("<C-down>" . "M-}")
-                                 ("<M-left>" . "M-b")
-                                 ("<M-right>" . "M-f")
-                                 ("<M-up>" . "M-{")
-                                 ("<M-down>" . "M-}")
-                                 ("<delete>" . "C-d")
-                                 ("<C-delete>" . "M-d")
-                                 ("<M-delete>" . "M-d")
-                                 ("<next>" . "C-v")
-                                 ("<C-next>" . "M-x <")
-                                 ("<prior>" . "M-v")
-                                 ("<C-prior>" . "M-x >")
-                                 ("<home>" . "C-a")
-                                 ("<C-home>" . "M-<")
-                                 ("<end>" . "C-e")
-                                 ("<C-end>" . "M->")))
+(defvar guru-warn-only nil
+  "When non-nil you'll only get an error message.")
+
+(defvar guru-affected-bindings-list
+  '(("<left>" . "C-b")
+    ("<right>" . "C-f")
+    ("<up>" . "C-p")
+    ("<down>" . "C-n")
+    ("<C-left>" . "M-b")
+    ("<C-right>" . "M-f")
+    ("<C-up>" . "M-{")
+    ("<C-down>" . "M-}")
+    ("<M-left>" . "M-b")
+    ("<M-right>" . "M-f")
+    ("<M-up>" . "M-{")
+    ("<M-down>" . "M-}")
+    ("<delete>" . "C-d")
+    ("<C-delete>" . "M-d")
+    ("<M-delete>" . "M-d")
+    ("<next>" . "C-v")
+    ("<C-next>" . "M-x <")
+    ("<prior>" . "M-v")
+    ("<C-prior>" . "M-x >")
+    ("<home>" . "C-a")
+    ("<C-home>" . "M-<")
+    ("<end>" . "C-e")
+    ("<C-end>" . "M->")))
 
 (defun guru-rebind (original-key alt-key)
-  `(lambda ()
-     (interactive)
-     (message "%s keybinding is disabled! Use <%s> instead" ,original-key  ,alt-key)))
+  (lambda ()
+    (interactive)
+    (let ((warning-text (if guru-warn-only "discouraged" "disabled")))
+      (message "%s keybinding is %s! Use <%s> instead" original-key warning-text alt-key))
+    (when guru-warn-only
+      (call-interactively (key-binding (kbd alt-key))))))
 
-(dolist (cell affected-bindings-list)
+(dolist (cell guru-affected-bindings-list)
   (define-key guru-mode-map
     (read-kbd-macro (car cell)) (guru-rebind (car cell) (cdr cell))))
 
