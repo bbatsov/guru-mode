@@ -4,7 +4,7 @@
 
 ;; Author: Bozhidar Batsov
 ;; URL: https://github.com/bbatsov/guru-mode
-;; Version: 0.1
+;; Version: 0.2
 ;; Keywords: convenience
 
 ;; This file is NOT part of GNU Emacs.
