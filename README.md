@@ -42,7 +42,7 @@ Most likely you'd like to enable `guru-mode` only in specific modes
 (like `prog-mode` in Emacs 24):
 
 ```lisp
-(add-hook 'prog-mode-hook 'turn-on-guru-mode)
+(add-hook 'prog-mode-hook 'guru-mode)
 ```
 
 If you only want to get warnings when you the arrow keys use the following config:
