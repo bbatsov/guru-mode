@@ -51,15 +51,6 @@ If you only want to get warnings when you the arrow keys use the following confi
 (setq guru-warn-only t)
 ```
 
-# Share the knowledge
-
-[WikEmacs](http://wikemacs.org) collects useful resources for working
-with GNU Emacs. Please, take the time to peruse and improve them as
-you accumulate knowledge about Emacs. Prelude makes this especially
-easy, since it bundles
-[MediaWiki support](http://wikemacs.org/wiki/Mediawiki.el) + the
-settings required to access WikEmacs right away.
-
 # Known issues
 
 Check out the project's
@@ -77,5 +68,9 @@ development of guru-mode.
 Bug reports and suggestions for improvements are always
 welcome. GitHub pull requests are even better! :-)
 
+If you like the project, consider supporting its development via [gittip](https://www.gittip.com/bbatsov).
+
+[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/bbatsov)
+
 Cheers,<br/>
-Bozhidar
+[Bozhidar](http://twitter.com/bbatsov)
