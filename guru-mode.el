@@ -39,41 +39,51 @@
   "When non-nil you'll only get an error message.")
 
 (defvar guru-affected-bindings-list
-  '(("<left>" . "C-b")
-    ("<right>" . "C-f")
-    ("<up>" . "C-p")
-    ("<down>" . "C-n")
-    ("<C-left>" . "M-b")
-    ("<C-right>" . "M-f")
-    ("<C-up>" . "M-{")
-    ("<C-down>" . "M-}")
-    ("<M-left>" . "M-b")
-    ("<M-right>" . "M-f")
-    ("<M-up>" . "M-{")
-    ("<M-down>" . "M-}")
-    ("<delete>" . "C-d")
-    ("<C-delete>" . "M-d")
-    ("<M-delete>" . "M-d")
-    ("<next>" . "C-v")
-    ("<C-next>" . "M-x <")
-    ("<prior>" . "M-v")
-    ("<C-prior>" . "M-x >")
-    ("<home>" . "C-a")
-    ("<C-home>" . "M-<")
-    ("<end>" . "C-e")
-    ("<C-end>" . "M->")))
+  '(("<left>" "C-b" left-char)
+    ("<right>" "C-f" right-char)
+    ("<up>" "C-p" previous-line)
+    ("<down>" "C-n" next-line)
+    ("<C-left>" "M-b" left-word)
+    ("<C-right>" "M-f" right-word)
+    ("<C-up>" "M-{" backward-paragraph)
+    ("<C-down>" "M-}" forward-paragraph)
+    ("<M-left>" "M-b" left-word)
+    ("<M-right>" "M-f" right-word)
+    ("<delete>" "C-d" delete-char)
+    ("<C-delete>" "M-d" kill-word)
+    ("<next>" "C-v" scroll-up-command)
+    ("<C-next>" "M-x <" scroll-left)
+    ("<prior>" "M-v" scroll-down-command)
+    ("<C-prior>" "M-x >" scroll-right)
+    ("<home>" "M-<" beginning-of-buffer)
+    ("<C-home>" "M-<" beginning-of-buffer)
+    ("<end>" "M->" end-of-buffer)
+    ("<C-end>" "M->" end-of-buffer)))
 
-(defun guru-rebind (original-key alt-key)
+(defun guru-current-key-binding (key)
+  "Look up the current binding for KEY without guru-mode."
+  (prog2 (guru-mode -1) (key-binding (kbd key)) (guru-mode +1)))
+
+(defun guru-rebind (original-key alt-key original-binding)
   (lambda ()
     (interactive)
-    (let ((warning-text (if guru-warn-only "discouraged" "disabled")))
-      (message "%s keybinding is %s! Use <%s> instead" original-key warning-text alt-key))
-    (when guru-warn-only
-      (call-interactively (key-binding (kbd alt-key))))))
+    (let ((current-binding (guru-current-key-binding original-key)))
+      (if (eq current-binding original-binding)
+          (progn
+            (let ((warning-text (if guru-warn-only "discouraged" "disabled")))
+              (message "%s keybinding is %s! Use <%s> instead" original-key warning-text alt-key))
+            (when guru-warn-only
+              (call-interactively (key-binding (kbd alt-key)))))
+        ;; else: the key has been re-mapped from the global default,
+        ;; use it without interference.
+        (call-interactively current-binding)))))
 
 (dolist (cell guru-affected-bindings-list)
-  (define-key guru-mode-map
-    (read-kbd-macro (car cell)) (guru-rebind (car cell) (cdr cell))))
+  (let ((original-key (car cell))
+        (recommended-key (car (cdr cell)))
+        (original-binding (car (cdr (cdr cell)))))
+    (define-key guru-mode-map
+      (read-kbd-macro (car cell)) (guru-rebind original-key recommended-key original-binding))))
 
 ;;;###autoload
 (define-minor-mode guru-mode
