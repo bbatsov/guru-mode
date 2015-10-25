@@ -49,7 +49,7 @@
     ("<C-down>" "M-}" forward-paragraph)
     ("<M-left>" "M-b" left-word)
     ("<M-right>" "M-f" right-word)
-    ("<delete>" "C-d" delete-char)
+    ("<deletechar>" "C-d" delete-forward-char)
     ("<C-delete>" "M-d" kill-word)
     ("<next>" "C-v" scroll-up-command)
     ("<C-next>" "M-x <" scroll-left)
