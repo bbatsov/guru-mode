@@ -21,7 +21,7 @@ you can install guru-mode from the [Marmalade](http://marmalade-repo.org/) repos
 ## MELPA
 
 If you're an Emacs 24 user or you have a recent version of package.el
-you can install guru-mode from the [MELPA](http://melpa.milkbox.net/) repository.
+you can install guru-mode from the [MELPA](https://melpa.org/) repository.
 
 ## Emacs Prelude
 
