@@ -1,10 +1,12 @@
-# Synopsis
+## Synopsis
 
-Guru mode disables some common keybindings and suggests the use of the established Emacs alternatives instead.
+Guru mode disables some common keybindings and suggests the use of the
+established Emacs alternatives instead.
 
-# Installation
+## Installation
 
-## Manual
+### Manual
+
 Just drop `guru-mode.el` somewhere in your `load-path`. I favour the
 folder `~/.emacs.d/vendor`:
 
@@ -13,24 +15,19 @@ folder `~/.emacs.d/vendor`:
 (require 'guru-mode)
 ```
 
-## Marmalade
-
-If you're an Emacs 24 user or you have a recent version of package.el
-you can install guru-mode from the [Marmalade](http://marmalade-repo.org/) repository.
-
-## MELPA
+### MELPA
 
 If you're an Emacs 24 user or you have a recent version of package.el
 you can install guru-mode from the [MELPA](https://melpa.org/) repository.
 
-## Emacs Prelude
+### Emacs Prelude
 
 `guru-mode` is naturally part of the
 [Emacs Prelude](https://github.com/bbatsov/prelude). If you're a Prelude
 user - `guru-mode` is already properly configured and ready for
 action.
 
-# Usage
+## Usage
 
 You can enable `guru-mode` globally like this:
 
@@ -51,26 +48,22 @@ If you only want to get warnings when you the arrow keys use the following confi
 (setq guru-warn-only t)
 ```
 
-# Known issues
+## Known issues
 
 Check out the project's
 [issue list](https://github.com/bbatsov/guru-mode/issues?sort=created&direction=desc&state=open)
 a list of unresolved issues. By the way - feel free to fix any of them
 and send me a pull request. :-)
 
-# Contributors
+## Contributors
 
-Here's a [list](https://github.com/bbatsov/guru-mode/contributors) of all the people who have contributed to the
-development of guru-mode.
+Here's a [list](https://github.com/bbatsov/guru-mode/contributors) of
+all the people who have contributed to the development of guru-mode.
 
-# Bugs & Improvements
+## Bugs & Improvements
 
 Bug reports and suggestions for improvements are always
 welcome. GitHub pull requests are even better! :-)
-
-If you like the project, consider supporting its development via [gittip](https://www.gittip.com/bbatsov).
-
-[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/bbatsov)
 
 Cheers,<br/>
 [Bozhidar](http://twitter.com/bbatsov)
