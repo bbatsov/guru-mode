@@ -1,6 +1,6 @@
 ;;; guru-mode.el --- Become an Emacs guru   -*- lexical-binding:t -*-
 
-;; Copyright (C) 2012-2013 Bozhidar Batsov
+;; Copyright (C) 2012-2016 Bozhidar Batsov
 
 ;; Author: Bozhidar Batsov
 ;; URL: https://github.com/bbatsov/guru-mode
