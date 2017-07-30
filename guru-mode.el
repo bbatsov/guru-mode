@@ -55,9 +55,9 @@
     ("<C-next>" "C-x <" scroll-left)
     ("<prior>" "M-v" scroll-down-command)
     ("<C-prior>" "C-x >" scroll-right)
-    ("<home>" "M-<" beginning-of-buffer)
+    ("<home>" "C-a" move-beginning-of-line)
+    ("<end>" "C-e" move-end-of-line)
     ("<C-home>" "M-<" beginning-of-buffer)
-    ("<end>" "M->" end-of-buffer)
     ("<C-end>" "M->" end-of-buffer)))
 
 (defun guru-current-key-binding (key)
