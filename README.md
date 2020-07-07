@@ -1,3 +1,5 @@
+# guru-mode
+
 ## Synopsis
 
 Guru mode disables some common keybindings and suggests the use of the
@@ -10,7 +12,7 @@ established Emacs alternatives instead.
 Just drop `guru-mode.el` somewhere in your `load-path`. I favour the
 folder `~/.emacs.d/vendor`:
 
-```lisp
+```emacs-lisp
 (add-to-list 'load-path "~/emacs.d/vendor")
 (require 'guru-mode)
 ```
@@ -31,20 +33,20 @@ action.
 
 You can enable `guru-mode` globally like this:
 
-```lisp
+```emacs-lisp
 (guru-global-mode +1)
 ```
 
 Most likely you'd like to enable `guru-mode` only in specific modes
 (like `prog-mode` in Emacs 24):
 
-```lisp
+```emacs-lisp
 (add-hook 'prog-mode-hook 'guru-mode)
 ```
 
 If you only want to get warnings when you the arrow keys use the following config:
 
-```lisp
+```emacs-lisp
 (setq guru-warn-only t)
 ```
 
