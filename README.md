@@ -2,8 +2,12 @@
 
 ## Synopsis
 
-Guru mode disables some common keybindings and suggests the use of the
-established Emacs alternatives instead.
+Guru mode disables (or warns on) some generic keybindings and suggests the use of the
+established and more efficient Emacs alternatives instead. Here are a few examples:
+
+* It will teach you to avoid the arrow keys and use keybindings like `C-f`, `C-b`, etc.
+* It will teach you to avoid keybindings using Home, End, etc.
+* It will teach you to avoid Delete/Backspace.
 
 ## Installation
 
@@ -49,6 +53,17 @@ If you only want to get warnings when you the arrow keys use the following confi
 ```emacs-lisp
 (setq guru-warn-only t)
 ```
+
+You can extend the list of keybindings covered by `guru-mode` like this:
+
+``` emacs-lisp
+(add-to-list 'guru-affected-bindings-list '("<C-left>" "M-b" left-word))
+```
+
+The list you're adding is of the format (discouraged keybinding, recommended keybinding, command).
+
+**Note:** `guru-mode` operates only on global keybindings and it will never interfere with
+some mode-specific keybindings.
 
 ## Known issues
 
