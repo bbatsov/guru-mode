@@ -86,19 +86,23 @@
         ;; use it without interference.
         (call-interactively current-binding)))))
 
-(dolist (cell guru-affected-bindings-list)
+(defun guru-init ()
+  "Initialize the guru keybindings."
+  (dolist (cell guru-affected-bindings-list)
   (let ((original-key (car cell))
         (recommended-key (car (cdr cell)))
         (original-binding (car (cdr (cdr cell)))))
     (define-key guru-mode-map
-      (read-kbd-macro (car cell)) (guru-rebind original-key recommended-key original-binding))))
+      (read-kbd-macro (car cell)) (guru-rebind original-key recommended-key original-binding)))))
 
 ;;;###autoload
 (define-minor-mode guru-mode
   "A minor mode that teaches you to use Emacs effectively."
   :lighter " guru"
   :keymap guru-mode-map
-  :group 'guru)
+  :group 'guru
+  (when guru-mode
+    (guru-init)))
 
 ;; define global minor mode
 ;;;###autoload
