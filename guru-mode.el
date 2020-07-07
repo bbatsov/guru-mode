@@ -32,11 +32,19 @@
 ;;
 ;;; Code:
 
+(defgroup guru nil
+  "Learn essential Emacs keybindings with the help of a guru."
+  :group 'tools
+  :group 'convenience)
+
 (defvar guru-mode-map (make-sparse-keymap)
   "Guru mode's keymap.")
 
-(defvar guru-warn-only nil
-  "When non-nil you'll only get an error message.")
+(defcustom guru-warn-only nil
+  "When non-nil you'll only get an error message."
+  :group 'guru
+  :type 'boolean
+  :package-version '(guru . "0.2.0"))
 
 (defvar guru-affected-bindings-list
   '(("<left>" "C-b" left-char)
