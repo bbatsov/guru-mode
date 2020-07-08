@@ -94,10 +94,10 @@ The exact behavior of the lambda depends on the value of `guru-warn-only'."
   "Initialize the guru keybindings."
   (dolist (cell guru-affected-bindings-list)
     (let ((original-key (car cell))
-          (recommended-key (car (cdr cell)))
-          (original-binding (car (cdr (cdr cell)))))
+          (recommended-key (cadr cell))
+          (original-binding (caddr cell)))
       (define-key guru-mode-map
-        (read-kbd-macro (car cell)) (guru-rebind original-key recommended-key original-binding)))))
+        (read-kbd-macro original-key) (guru-rebind original-key recommended-key original-binding)))))
 
 ;;;###autoload
 (define-minor-mode guru-mode
