@@ -4,7 +4,7 @@
 
 ;; Author: Bozhidar Batsov
 ;; URL: https://github.com/bbatsov/guru-mode
-;; Version: 0.2
+;; Version: 1.0
 ;; Keywords: convenience
 
 ;; This file is NOT part of GNU Emacs.
@@ -73,6 +73,10 @@
   (prog2 (guru-mode -1) (key-binding (kbd key)) (guru-mode +1)))
 
 (defun guru-rebind (original-key alt-key original-binding)
+  "Rebind ORIGINAL-KEY to a lambda.
+
+It will disable or warn and suggest using ALT-KEY for ORIGINAL-BINDING.
+The exact behavior of the lambda depends on the value of `guru-warn-only'."
   (lambda ()
     (interactive)
     (let ((current-binding (guru-current-key-binding original-key)))
