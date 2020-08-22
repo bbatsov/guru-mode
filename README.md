@@ -1,5 +1,11 @@
 # guru-mode
 
+[![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/guru-mode-badge.svg)](http://melpa.org/#/guru-mode)
+[![MELPA Stable](http://stable.melpa.org/packages/guru-mode-badge.svg)](http://stable.melpa.org/#/guru-mode)
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2204SR)
+[![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/bbatsov)
+
 ## Synopsis
 
 Guru mode disables (or warns on) some generic keybindings and suggests the use of the
