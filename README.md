@@ -6,6 +6,8 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2204SR)
 [![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/bbatsov)
 
+[badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
+
 ## Synopsis
 
 Guru mode disables (or warns on) some generic keybindings and suggests the use of the
