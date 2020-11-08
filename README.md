@@ -17,8 +17,14 @@ established and more efficient Emacs alternatives instead. Here are a few exampl
 
 -------------
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C2204SR)
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bbatsov)
 [![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/bbatsov)
+
+You can support my work on `guru-mode` and my other Emacs packages via
+ [PayPal](https://www.paypal.me/bbatsov),
+ [ko-fi](https://ko-fi.com/bbatsov),
+ [Patreon](https://www.patreon.com/bbatsov) and
+ [GitHub Sponsors](https://github.com/sponsors/bbatsov).
 
 ## Installation
 
