@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2012-2020 Bozhidar Batsov
 
-;; Author: Bozhidar Batsov
+;; Author: Bozhidar Batsov <bozhidar@batsov.dev>
 ;; URL: https://github.com/bbatsov/guru-mode
 ;; Version: 1.0
 ;; Keywords: convenience
