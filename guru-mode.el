@@ -28,7 +28,7 @@
 
 ;;; Commentary:
 ;;
-;; Guru mode teaches to use Emacs properly.
+;; Guru mode teaches you how to use Emacs effectively.
 ;;
 ;;; Code:
 
